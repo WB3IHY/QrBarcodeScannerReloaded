@@ -10,11 +10,11 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.barcodescanner"
+        applicationId "com.wb3ihy.barcodescanner"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 12
-        versionName "1.10"
+        versionCode 1
+        versionName "1.0.0"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary  true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -48,7 +48,7 @@ android {
     productFlavors {
         appGallery {}
         googlePlay {
-            applicationId "org.barcodescanner"
+            applicationId "com.wb3ihy.barcodescanner"
         }
         fDroid {}
     }

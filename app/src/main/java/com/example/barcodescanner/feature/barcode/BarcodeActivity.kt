@@ -1,5 +1,6 @@
 package com.example.barcodescanner.feature.barcode
 
+import android.content.ActivityNotFoundException
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -732,13 +733,10 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
     }
 
     private fun startActivityIfExists(intent: Intent) {
-        intent.apply {
-            flags = flags or Intent.FLAG_ACTIVITY_NEW_TASK
-        }
-
-        if (intent.resolveActivity(packageManager) != null) {
+        intent.flags = intent.flags or Intent.FLAG_ACTIVITY_NEW_TASK
+        try {
             startActivity(intent)
-        } else {
+        } catch (ex: ActivityNotFoundException) {
             showToast(R.string.activity_barcode_no_app)
         }
     }
