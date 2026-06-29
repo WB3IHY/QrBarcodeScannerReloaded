@@ -135,7 +135,7 @@ class SettingsFragment : Fragment(), DeleteConfirmationDialogFragment.Listener {
     }
 
     private fun showSourceCode() {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/wewewe718/QrAndBarcodeScanner"))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WB3IHY/QrAndBarcodeScanner"))
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
         }
