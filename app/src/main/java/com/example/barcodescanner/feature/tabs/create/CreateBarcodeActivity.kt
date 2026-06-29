@@ -135,7 +135,7 @@ class CreateBarcodeActivity : BaseActivity(), AppAdapter.Listener {
     }
 
     private fun supportEdgeToEdge() {
-        root_view.applySystemWindowInsets(applyTop = true, applyBottom = true)
+        root_view.applySystemWindowInsets(applyTop = true, applyRight = true, applyBottom = true)
     }
 
     private fun createBarcodeImmediatelyIfNeeded(): Boolean {

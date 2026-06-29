@@ -10,6 +10,7 @@ import androidx.paging.RxPagedListBuilder
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.barcodescanner.R
 import com.example.barcodescanner.di.barcodeDatabase
+import com.example.barcodescanner.extension.applySystemWindowInsets
 import com.example.barcodescanner.extension.orZero
 import com.example.barcodescanner.extension.showError
 import com.example.barcodescanner.feature.barcode.BarcodeActivity
@@ -54,6 +55,7 @@ class BarcodeHistoryListFragment : Fragment(), BarcodeHistoryAdapter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recycler_view_history.applySystemWindowInsets(applyRight = true)
         initRecyclerView()
         loadHistory()
     }

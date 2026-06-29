@@ -58,6 +58,7 @@ class SettingsFragment : Fragment(), DeleteConfirmationDialogFragment.Listener {
 
     fun supportEdgeToEdge() {
         app_bar_layout.applySystemWindowInsets(applyTop = true)
+        scroll_view.applySystemWindowInsets(applyRight = true)
     }
 
     private fun handleButtonCheckedChanged() {
