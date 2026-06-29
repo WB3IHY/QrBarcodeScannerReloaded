@@ -3,9 +3,12 @@ package com.example.barcodescanner.usecase
 import android.graphics.Bitmap
 import com.example.barcodescanner.extension.orZero
 import com.google.zxing.BinaryBitmap
+import com.google.zxing.InvertedLuminanceSource
 import com.google.zxing.MultiFormatReader
+import com.google.zxing.NotFoundException
 import com.google.zxing.RGBLuminanceSource
 import com.google.zxing.Result
+import com.google.zxing.common.GlobalHistogramBinarizer
 import com.google.zxing.common.HybridBinarizer
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
@@ -43,9 +46,27 @@ object BarcodeImageScanner {
         image.getPixels(bitmapBuffer, 0, width, 0, 0, width, height)
 
         val source = RGBLuminanceSource(width, height, bitmapBuffer)
-        val bitmap = BinaryBitmap(HybridBinarizer(source))
-
         val reader = MultiFormatReader()
-        return reader.decode(bitmap)
+
+        // Pass 1: HybridBinarizer (best for high-contrast codes)
+        try {
+            return reader.decode(BinaryBitmap(HybridBinarizer(source)))
+        } catch (_: NotFoundException) { }
+
+        // Pass 2: GlobalHistogramBinarizer (better for lower-contrast images)
+        reader.reset()
+        try {
+            return reader.decode(BinaryBitmap(GlobalHistogramBinarizer(source)))
+        } catch (_: NotFoundException) { }
+
+        // Pass 3: inverted image (handles dark-background codes)
+        reader.reset()
+        val invertedSource = InvertedLuminanceSource(source)
+        try {
+            return reader.decode(BinaryBitmap(HybridBinarizer(invertedSource)))
+        } catch (_: NotFoundException) { }
+
+        reader.reset()
+        throw NotFoundException.getNotFoundInstance()
     }
 }
