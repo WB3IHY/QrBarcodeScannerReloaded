@@ -16,6 +16,8 @@ object SupportedBarcodeFormats {
         BarcodeFormat.CODE_93,
         BarcodeFormat.CODE_39,
         BarcodeFormat.CODABAR,
-        BarcodeFormat.ITF
+        BarcodeFormat.ITF,
+        BarcodeFormat.RSS_14,
+        BarcodeFormat.RSS_EXPANDED
     )
 }

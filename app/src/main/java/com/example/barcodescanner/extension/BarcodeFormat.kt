@@ -18,6 +18,8 @@ fun BarcodeFormat.toStringId(): Int {
         BarcodeFormat.QR_CODE -> R.string.barcode_format_qr_code
         BarcodeFormat.UPC_A -> R.string.barcode_format_upc_a
         BarcodeFormat.UPC_E -> R.string.barcode_format_upc_e
+        BarcodeFormat.RSS_14 -> R.string.barcode_format_rss_14
+        BarcodeFormat.RSS_EXPANDED -> R.string.barcode_format_rss_expanded
         else -> R.string.barcode_format_qr_code
     }
 }

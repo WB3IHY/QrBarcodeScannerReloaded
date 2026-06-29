@@ -378,5 +378,7 @@
     <string name="barcode_format_pdf_417" translatable="false">PDF417</string>
     <string name="barcode_format_upc_a" translatable="false">UPC-A</string>
     <string name="barcode_format_upc_e" translatable="false">UPC-E</string>
+    <string name="barcode_format_rss_14" translatable="false">GS1 DataBar-14</string>
+    <string name="barcode_format_rss_expanded" translatable="false">GS1 DataBar Expanded</string>
 
 </resources>
