@@ -2,6 +2,9 @@ package com.example.barcodescanner.feature.tabs.scan
 
 import android.Manifest
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -276,7 +279,13 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
                 { id ->
                     lastResult = barcode
                     when (settings.continuousScanning) {
-                        true -> restartPreviewWithDelay(true)
+                        true -> {
+                            val copied = settings.copyToClipboard
+                            if (copied) {
+                                copyToClipboard(barcode.text)
+                            }
+                            restartPreviewWithDelay(showMessage = true, copied = copied)
+                        }
                         else -> navigateToBarcodeScreen(barcode.copy(id = id))
                     }
                 },
@@ -285,17 +294,27 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
             .addTo(disposable)
     }
 
-    private fun restartPreviewWithDelay(showMessage: Boolean) {
+    private fun restartPreviewWithDelay(showMessage: Boolean, copied: Boolean = false) {
         Completable
             .timer(CONTINUOUS_SCANNING_PREVIEW_DELAY, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
                 if (showMessage) {
-                    showToast(R.string.fragment_scan_barcode_from_camera_barcode_saved)
+                    val messageRes = if (copied) {
+                        R.string.fragment_scan_barcode_from_camera_barcode_saved_and_copied
+                    } else {
+                        R.string.fragment_scan_barcode_from_camera_barcode_saved
+                    }
+                    showToast(messageRes)
                 }
                 restartPreview()
             }
             .addTo(disposable)
+    }
+
+    private fun copyToClipboard(text: String) {
+        val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        clipboard.setPrimaryClip(ClipData.newPlainText("", text))
     }
 
     private fun restartPreview() {
