@@ -32,8 +32,9 @@ class CreateQrCodeWifiFragment : BaseCreateBarcodeFragment() {
     override fun getBarcodeSchema(): Schema {
         val encryption = when (spinner_encryption.selectedItemPosition) {
             0 -> "WPA"
-            1 -> "WEP"
-            2 -> "nopass"
+            1 -> "WPA3"
+            2 -> "WEP"
+            3 -> "nopass"
             else -> "nopass"
         }
         return Wifi(
@@ -53,7 +54,7 @@ class CreateQrCodeWifiFragment : BaseCreateBarcodeFragment() {
 
         spinner_encryption.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                text_input_layout_password.isVisible = position != 2
+                text_input_layout_password.isVisible = position != 3
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {

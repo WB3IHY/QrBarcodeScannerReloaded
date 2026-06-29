@@ -129,19 +129,16 @@ class SettingsFragment : Fragment(), DeleteConfirmationDialogFragment.Listener {
     }
 
     private fun showAppInMarket() {
-        val uri = Uri.parse("market://details?id=" + requireContext().packageName)
-        val intent = Intent(Intent.ACTION_VIEW, uri).apply {
-            flags = Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_MULTIPLE_TASK
-        }
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WB3IHY/QrBarcodeScannerReloaded/releases"))
         try {
             startActivity(intent)
         } catch (ex: ActivityNotFoundException) {
-            // No market app installed
+            // No browser available
         }
     }
 
     private fun showSourceCode() {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WB3IHY/QrAndBarcodeScanner"))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WB3IHY/QrBarcodeScannerReloaded"))
         try {
             startActivity(intent)
         } catch (ex: ActivityNotFoundException) {

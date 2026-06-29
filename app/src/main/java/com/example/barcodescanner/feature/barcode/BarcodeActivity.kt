@@ -3,9 +3,11 @@ package com.example.barcodescanner.feature.barcode
 import android.content.ActivityNotFoundException
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.CalendarContract
 import android.provider.ContactsContract
@@ -338,7 +340,21 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
             putExtra(ContactsContract.Intents.Insert.TERTIARY_EMAIL, barcode.tertiaryEmail.orEmpty())
             putExtra(ContactsContract.Intents.Insert.TERTIARY_EMAIL_TYPE, barcode.tertiaryEmailType.orEmpty().toEmailType())
 
+            putExtra(ContactsContract.Intents.Insert.POSTAL, barcode.address.orEmpty())
+
             putExtra(ContactsContract.Intents.Insert.NOTES, barcode.note.orEmpty())
+
+            val extraData = ArrayList<ContentValues>()
+            if (barcode.url.isNullOrBlank().not()) {
+                extraData.add(ContentValues().apply {
+                    put(ContactsContract.Data.MIMETYPE, ContactsContract.CommonDataKinds.Website.CONTENT_ITEM_TYPE)
+                    put(ContactsContract.CommonDataKinds.Website.URL, barcode.url)
+                    put(ContactsContract.CommonDataKinds.Website.TYPE, ContactsContract.CommonDataKinds.Website.TYPE_HOMEPAGE)
+                })
+            }
+            if (extraData.isNotEmpty()) {
+                putParcelableArrayListExtra(ContactsContract.Intents.Insert.DATA, extraData)
+            }
         }
         startActivityIfExists(intent)
     }
@@ -390,7 +406,12 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
             .subscribe(
                 {
                     showConnectToWifiButtonEnabled(true)
-                    showToast(R.string.activity_barcode_connecting_to_wifi)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        showToast(R.string.activity_barcode_wifi_suggestion_added)
+                        openWifiSettings()
+                    } else {
+                        showToast(R.string.activity_barcode_connecting_to_wifi)
+                    }
                 },
                 { error ->
                     showConnectToWifiButtonEnabled(true)

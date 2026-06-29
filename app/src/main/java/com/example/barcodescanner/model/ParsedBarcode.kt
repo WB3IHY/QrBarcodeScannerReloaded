@@ -13,6 +13,7 @@ class ParsedBarcode(barcode: Barcode) {
     val date = barcode.date
     var isFavorite = barcode.isFavorite
     val country = barcode.country
+    val errorCorrectionLevel = barcode.errorCorrectionLevel
 
     var firstName: String? = null
     var lastName: String? = null
@@ -164,7 +165,8 @@ class ParsedBarcode(barcode: Barcode) {
         jobTitle = vCard.title
         url = vCard.url
         geoUri = vCard.geoUri
-        
+        address = vCard.address
+
         phone = vCard.phone
         phoneType = vCard.phoneType
         secondaryPhone = vCard.secondaryPhone

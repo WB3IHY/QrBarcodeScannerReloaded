@@ -33,7 +33,8 @@ class Wifi(
                 return null
             }
 
-            val keysAndValuesSubstring = WIFI_REGEX.matchEntire(text)?.groupValues?.get(1) ?: return null
+            val sanitized = text.trimEnd { it.isISOControl() }
+            val keysAndValuesSubstring = WIFI_REGEX.matchEntire(sanitized)?.groupValues?.get(1) ?: return null
             val keysAndValues = PAIR_REGEX
                 .findAll(keysAndValuesSubstring)
                 .map { pair ->

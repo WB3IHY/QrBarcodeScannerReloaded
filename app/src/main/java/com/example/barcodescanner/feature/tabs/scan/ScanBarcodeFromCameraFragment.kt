@@ -6,6 +6,8 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.hardware.camera2.CameraCharacteristics
+import android.hardware.camera2.CameraManager
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -62,6 +64,7 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
         setDarkStatusBar()
         initScanner()
         initFlashButton()
+        handleFlipCameraClicked()
         handleScanFromFileClicked()
         handleZoomChanged()
         handleDecreaseZoomClicked()
@@ -105,6 +108,7 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
 
     private fun supportEdgeToEdge() {
         image_view_flash.applySystemWindowInsets(applyTop = true)
+        image_view_flip_camera.applySystemWindowInsets(applyTop = true)
         image_view_scan_from_file.applySystemWindowInsets(applyTop = true)
     }
 
@@ -171,6 +175,20 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
             toggleFlash()
         }
         image_view_flash.isActivated = settings.flash
+    }
+
+    private fun handleFlipCameraClicked() {
+        layout_flip_camera_container.setOnClickListener {
+            flipCamera()
+        }
+    }
+
+    private fun flipCamera() {
+        settings.isBackCamera = !settings.isBackCamera
+        codeScanner.camera = if (settings.isBackCamera) CodeScanner.CAMERA_BACK else CodeScanner.CAMERA_FRONT
+        codeScanner.releaseResources()
+        initZoomSeekBar()
+        codeScanner.startPreview()
     }
 
     private fun handleScanFromFileClicked() {
@@ -324,8 +342,27 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
     }
 
     private fun toggleFlash() {
-        image_view_flash.isActivated = image_view_flash.isActivated.not()
-        codeScanner.isFlashEnabled = codeScanner.isFlashEnabled.not()
+        val newState = !image_view_flash.isActivated
+        image_view_flash.isActivated = newState
+        codeScanner.isFlashEnabled = newState
+        // Camera1 torch silently fails on some devices (e.g. Sony Xperia) when
+        // getSupportedFlashModes() omits "torch". Fall back to Camera2 torch mode.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && settings.isBackCamera) {
+            trySetCamera2TorchMode(newState)
+        }
+    }
+
+    private fun trySetCamera2TorchMode(enabled: Boolean) {
+        try {
+            val cameraManager = requireContext().getSystemService(Context.CAMERA_SERVICE) as CameraManager
+            val cameraId = cameraManager.cameraIdList.firstOrNull { id ->
+                cameraManager.getCameraCharacteristics(id)
+                    .get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_BACK
+            } ?: return
+            cameraManager.setTorchMode(cameraId, enabled)
+        } catch (_: Exception) {
+            // Silently ignored — Camera1 path remains primary
+        }
     }
 
     private fun showToast(stringId: Int) {

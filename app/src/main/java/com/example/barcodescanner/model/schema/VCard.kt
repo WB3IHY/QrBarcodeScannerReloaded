@@ -8,6 +8,7 @@ import ezvcard.VCardVersion
 import ezvcard.property.*
 import ezvcard.property.Email
 import ezvcard.property.Url
+import java.util.Locale
 
 data class VCard(
     val firstName: String? = null,
@@ -35,6 +36,8 @@ data class VCard(
     companion object {
         private const val SCHEMA_PREFIX = "BEGIN:VCARD"
         private const val ADDRESS_SEPARATOR = ","
+        // These vCard type values describe transmission mode, not the contact category
+        private val PHONE_QUALIFIER_TYPES = setOf("VOICE", "TEXT", "TEXTPHONE", "VIDEO", "PREF")
 
         fun parse(text: String): VCard? {
             if (text.startsWithIgnoreCase(SCHEMA_PREFIX).not()) {
@@ -78,15 +81,18 @@ data class VCard(
 
             vCard.telephoneNumbers?.getOrNull(0)?.apply {
                 phone = this.text
-                phoneType = types?.firstOrNull()?.value
+                phoneType = types?.firstOrNull { it.value.uppercase(Locale.US) !in PHONE_QUALIFIER_TYPES }?.value
+                    ?: types?.firstOrNull()?.value
             }
             vCard.telephoneNumbers?.getOrNull(1)?.apply {
                 secondaryPhone = this.text
-                secondaryPhoneType = types?.firstOrNull()?.value
+                secondaryPhoneType = types?.firstOrNull { it.value.uppercase(Locale.US) !in PHONE_QUALIFIER_TYPES }?.value
+                    ?: types?.firstOrNull()?.value
             }
             vCard.telephoneNumbers?.getOrNull(2)?.apply {
                 tertiaryPhone = this.text
-                tertiaryPhoneType = types?.firstOrNull()?.value
+                tertiaryPhoneType = types?.firstOrNull { it.value.uppercase(Locale.US) !in PHONE_QUALIFIER_TYPES }?.value
+                    ?: types?.firstOrNull()?.value
             }
 
             vCard.addresses.firstOrNull()?.apply {
@@ -185,7 +191,7 @@ data class VCard(
         }
 
         if (tertiaryPhone.isNullOrBlank().not()) {
-            vCard.addTelephoneNumber(Telephone(tertiaryPhoneType))
+            vCard.addTelephoneNumber(Telephone(tertiaryPhone))
         }
 
         if (url.isNullOrBlank().not()) {

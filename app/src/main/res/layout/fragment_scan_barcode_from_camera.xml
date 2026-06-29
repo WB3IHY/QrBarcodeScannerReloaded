@@ -31,7 +31,7 @@
         android:layout_marginTop="@dimen/default_margin_big"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/image_view_scan_from_file"
+        app:layout_constraintEnd_toStartOf="@id/image_view_flip_camera"
         app:srcCompat="@drawable/ic_flash"
         />
     <TextView
@@ -57,11 +57,43 @@
         />
 
     <ImageView
-        android:id="@+id/image_view_scan_from_file"
+        android:id="@+id/image_view_flip_camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/image_view_flash"
         app:layout_constraintStart_toEndOf="@id/image_view_flash"
+        app:layout_constraintEnd_toStartOf="@id/image_view_scan_from_file"
+        app:srcCompat="@drawable/ic_flip_camera"
+        />
+    <TextView
+        android:id="@+id/text_view_flip_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image_view_flip_camera"
+        app:layout_constraintStart_toStartOf="@id/image_view_flip_camera"
+        app:layout_constraintEnd_toEndOf="@id/image_view_flip_camera"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="@string/fragment_scan_barcode_from_camera_flip"
+        android:textSize="@dimen/default_text_size_extra_small"
+        android:textStyle="bold"
+        />
+    <FrameLayout
+        android:id="@+id/layout_flip_camera_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/image_view_flip_camera"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_flip_camera"
+        app:layout_constraintStart_toStartOf="@id/text_view_flip_camera"
+        app:layout_constraintEnd_toEndOf="@id/text_view_flip_camera"
+        />
+
+    <ImageView
+        android:id="@+id/image_view_scan_from_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/image_view_flash"
+        app:layout_constraintStart_toEndOf="@id/image_view_flip_camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_image_white"
         />
