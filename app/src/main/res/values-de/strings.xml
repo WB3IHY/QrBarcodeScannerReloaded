@@ -251,7 +251,6 @@
 
     <!--Choose search engine activity-->
     <string name="activity_choose_search_engine_title">Search engines</string>
-    <string name="activity_choose_search_engine_none">None</string>
     <string name="activity_choose_search_engine_ask_every_time">Ask every time</string>
     <string name="activity_choose_search_engine_bing">Bing</string>
     <string name="activity_choose_search_engine_duck_duck_go">DuckDuckGo</string>

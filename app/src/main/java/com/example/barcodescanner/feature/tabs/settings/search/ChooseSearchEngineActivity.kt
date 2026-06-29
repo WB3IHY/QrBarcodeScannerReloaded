@@ -23,7 +23,7 @@ class ChooseSearchEngineActivity : BaseActivity() {
     }
 
     private val buttons by unsafeLazy {
-        listOf(button_none, button_ask_every_time, button_bing, button_duck_duck_go, button_google, button_qwant, button_startpage, button_yahoo, button_yandex)
+        listOf(button_ask_every_time, button_bing, button_duck_duck_go, button_google, button_qwant, button_startpage, button_yahoo, button_yandex)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,8 +45,7 @@ class ChooseSearchEngineActivity : BaseActivity() {
 
     private fun showInitialValue() {
         when (settings.searchEngine) {
-            SearchEngine.NONE -> button_none.isChecked = true
-            SearchEngine.ASK_EVERY_TIME -> button_ask_every_time.isChecked = true
+            SearchEngine.NONE, SearchEngine.ASK_EVERY_TIME -> button_ask_every_time.isChecked = true
             SearchEngine.BING -> button_bing.isChecked = true
             SearchEngine.DUCK_DUCK_GO -> button_duck_duck_go.isChecked = true
             SearchEngine.GOOGLE -> button_google.isChecked = true
@@ -58,7 +57,6 @@ class ChooseSearchEngineActivity : BaseActivity() {
     }
 
     private fun handleSettingsChanged() {
-        button_none.setCheckedChangedListener(SearchEngine.NONE)
         button_ask_every_time.setCheckedChangedListener(SearchEngine.ASK_EVERY_TIME)
         button_bing.setCheckedChangedListener(SearchEngine.BING)
         button_duck_duck_go.setCheckedChangedListener(SearchEngine.DUCK_DUCK_GO)

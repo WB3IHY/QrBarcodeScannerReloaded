@@ -251,7 +251,6 @@
 
     <!--Choose search engine activity-->
     <string name="activity_choose_search_engine_title">搜索引擎</string>
-    <string name="activity_choose_search_engine_none">无</string>
     <string name="activity_choose_search_engine_ask_every_time">每次都询问</string>
     <string name="activity_choose_search_engine_bing">Bing</string>
     <string name="activity_choose_search_engine_duck_duck_go">DuckDuckGo</string>

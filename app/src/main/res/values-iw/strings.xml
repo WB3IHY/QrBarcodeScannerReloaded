@@ -252,7 +252,6 @@
 
     <!--Choose search engine activity-->
     <string name="activity_choose_search_engine_title">מנועי חיפוש</string>
-    <string name="activity_choose_search_engine_none">ללא</string>
     <string name="activity_choose_search_engine_ask_every_time">שאל בכל פעם</string>
     <string name="activity_choose_search_engine_bing">Bing</string>
     <string name="activity_choose_search_engine_duck_duck_go">DuckDuckGo</string>

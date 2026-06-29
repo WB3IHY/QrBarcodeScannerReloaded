@@ -251,7 +251,6 @@
 
     <!--Choose search engine activity-->
     <string name="activity_choose_search_engine_title">Motori di ricerca</string>
-    <string name="activity_choose_search_engine_none">Nessun</string>
     <string name="activity_choose_search_engine_ask_every_time">Chiedi ogni volta</string>
     <string name="activity_choose_search_engine_bing">Bing</string>
     <string name="activity_choose_search_engine_duck_duck_go">DuckDuckGo</string>
