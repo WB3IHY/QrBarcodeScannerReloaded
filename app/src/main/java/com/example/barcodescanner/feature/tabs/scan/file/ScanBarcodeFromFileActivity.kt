@@ -1,6 +1,7 @@
 package com.example.barcodescanner.feature.tabs.scan.file
 
 import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -129,8 +130,10 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
             setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
         }
 
-        if (intent.resolveActivity(packageManager) != null) {
+        try {
             startActivityForResult(intent, requestCode)
+        } catch (ex: ActivityNotFoundException) {
+            finish()
         }
     }
 

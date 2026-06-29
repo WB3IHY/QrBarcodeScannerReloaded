@@ -2,6 +2,7 @@ package com.example.barcodescanner.feature.tabs.create
 
 import android.Manifest
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -288,9 +289,9 @@ class CreateBarcodeActivity : BaseActivity(), AppAdapter.Listener {
     }
 
     private fun startActivityForResultIfExists(intent: Intent, requestCode: Int) {
-        if (intent.resolveActivity(packageManager) != null) {
+        try {
             startActivityForResult(intent, requestCode)
-        } else {
+        } catch (ex: ActivityNotFoundException) {
             Toast.makeText(this, R.string.activity_barcode_no_app, Toast.LENGTH_SHORT).show()
         }
     }

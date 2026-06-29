@@ -1,5 +1,6 @@
 package com.example.barcodescanner.feature.tabs.settings
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -130,15 +131,19 @@ class SettingsFragment : Fragment(), DeleteConfirmationDialogFragment.Listener {
         val intent = Intent(Intent.ACTION_VIEW, uri).apply {
             flags = Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_MULTIPLE_TASK
         }
-        if (intent.resolveActivity(requireContext().packageManager) != null) {
+        try {
             startActivity(intent)
+        } catch (ex: ActivityNotFoundException) {
+            // No market app installed
         }
     }
 
     private fun showSourceCode() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WB3IHY/QrAndBarcodeScanner"))
-        if (intent.resolveActivity(packageManager) != null) {
+        try {
             startActivity(intent)
+        } catch (ex: ActivityNotFoundException) {
+            // No browser available
         }
     }
 
