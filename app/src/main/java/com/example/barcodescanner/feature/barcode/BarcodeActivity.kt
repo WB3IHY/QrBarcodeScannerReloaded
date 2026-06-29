@@ -1,6 +1,5 @@
 package com.example.barcodescanner.feature.barcode
 
-import android.app.SearchManager
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -471,21 +470,13 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
     private fun searchBarcodeTextOnInternet() {
         val searchEngine = settings.searchEngine
         when (searchEngine) {
-           SearchEngine.NONE -> performWebSearch()
-           SearchEngine.ASK_EVERY_TIME -> showSearchEnginesDialog()
+           SearchEngine.NONE, SearchEngine.ASK_EVERY_TIME -> showSearchEnginesDialog()
            else -> performWebSearchUsingSearchEngine(searchEngine)
         }
     }
 
-    private fun performWebSearch() {
-        val intent = Intent(Intent.ACTION_WEB_SEARCH).apply {
-            putExtra(SearchManager.QUERY, barcode.text)
-        }
-        startActivityIfExists(intent)
-    }
-
     private fun performWebSearchUsingSearchEngine(searchEngine: SearchEngine) {
-        val url = searchEngine.templateUrl + barcode.text
+        val url = searchEngine.templateUrl + Uri.encode(barcode.text)
         startActivityIfExists(Intent.ACTION_VIEW, url)
     }
 
