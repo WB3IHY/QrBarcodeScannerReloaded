@@ -37,6 +37,10 @@ class BoardingPass(
             if (text.startsWithIgnoreCase("M1").not()) {
                 return null
             }
+            // Mandatory portion runs through index 60; bail early if too short
+            if (text.length < 61) {
+                return null
+            }
             // E means electronic ticket
             if (text[22] != 'E') {
                 return null
@@ -47,6 +51,9 @@ class BoardingPass(
                 return null
             }
             // ^ is the mandatory security marker
+            if (60 + fieldSize >= text.length) {
+                return null
+            }
             if (text[60+fieldSize] != '^') {
                 return null
             }
