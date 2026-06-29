@@ -189,6 +189,14 @@
                 app:hint="@string/fragment_settings_choose_search_engines_hint"
                 app:isSwitchVisible="false"
                 />
+            <com.example.barcodescanner.feature.common.view.SettingsButton
+                android:id="@+id/button_choose_qr_error_correction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/fragment_settings_qr_error_correction"
+                app:hint="@string/fragment_settings_qr_error_correction_hint"
+                app:isSwitchVisible="false"
+                />
             <View style="@style/DelimiterStyle" />
 
             <!--About-->

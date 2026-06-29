@@ -76,15 +76,13 @@ object BarcodeImageGenerator {
     }
 
     private fun createHints(errorCorrectionLevel: String?, margin: Int): Map<EncodeHintType, Any> {
-        val hints = mapOf(
+        val hints = mutableMapOf<EncodeHintType, Any>(
             EncodeHintType.CHARACTER_SET to "utf-8",
             EncodeHintType.MARGIN to margin
         )
-
         if (errorCorrectionLevel != null) {
-            hints.plus(EncodeHintType.ERROR_CORRECTION to errorCorrectionLevel)
+            hints[EncodeHintType.ERROR_CORRECTION] = errorCorrectionLevel
         }
-
         return hints
     }
 

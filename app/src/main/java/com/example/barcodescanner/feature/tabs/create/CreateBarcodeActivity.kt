@@ -308,7 +308,8 @@ class CreateBarcodeActivity : BaseActivity(), AppAdapter.Listener {
             format = barcodeFormat,
             schema = schema.schema,
             date = System.currentTimeMillis(),
-            isGenerated = true
+            isGenerated = true,
+            errorCorrectionLevel = if (barcodeFormat == BarcodeFormat.QR_CODE) settings.qrErrorCorrectionLevel else null
         )
 
         if (settings.saveCreatedBarcodesToHistory.not()) {

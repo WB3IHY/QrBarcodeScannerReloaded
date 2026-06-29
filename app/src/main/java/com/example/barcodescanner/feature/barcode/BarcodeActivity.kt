@@ -537,6 +537,7 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
         showBarcodeName()
         showBarcodeText()
         showBarcodeCountry()
+        showBarcodeErrorCorrectionLevel()
     }
 
     private fun showBarcodeMenuIfNeeded() {
@@ -619,6 +620,19 @@ class BarcodeActivity : BaseActivity(), DeleteConfirmationDialogFragment.Listene
             false -> showOneBarcodeCountry(country)
             true -> showTwoBarcodeCountries(country.split('/'))
         }
+    }
+
+    private fun showBarcodeErrorCorrectionLevel() {
+        val level = barcode.errorCorrectionLevel ?: return
+        val description = when (level) {
+            "L" -> getString(R.string.barcode_error_correction_l)
+            "M" -> getString(R.string.barcode_error_correction_m)
+            "Q" -> getString(R.string.barcode_error_correction_q)
+            "H" -> getString(R.string.barcode_error_correction_h)
+            else -> level
+        }
+        text_view_error_correction_level.isVisible = true
+        text_view_error_correction_level.text = getString(R.string.barcode_error_correction_label, description)
     }
 
     private fun showOneBarcodeCountry(country: String) {

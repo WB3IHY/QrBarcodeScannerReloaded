@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/root_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+        style="@style/AppBarLayoutStyle"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:title="@string/activity_choose_qr_error_correction_title"
+            style="@style/ToolbarWithBackButtonStyle"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        style="@style/ScrollStyle"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.example.barcodescanner.feature.common.view.SettingsRadioButton
+                android:id="@+id/button_ecl_l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/activity_choose_qr_error_correction_l"
+                app:hint="@string/activity_choose_qr_error_correction_l_hint"
+                />
+            <com.example.barcodescanner.feature.common.view.SettingsRadioButton
+                android:id="@+id/button_ecl_m"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/activity_choose_qr_error_correction_m"
+                app:hint="@string/activity_choose_qr_error_correction_m_hint"
+                />
+            <com.example.barcodescanner.feature.common.view.SettingsRadioButton
+                android:id="@+id/button_ecl_q"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/activity_choose_qr_error_correction_q"
+                app:hint="@string/activity_choose_qr_error_correction_q_hint"
+                />
+            <com.example.barcodescanner.feature.common.view.SettingsRadioButton
+                android:id="@+id/button_ecl_h"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/activity_choose_qr_error_correction_h"
+                app:hint="@string/activity_choose_qr_error_correction_h_hint"
+                app:isDelimiterVisible="false"
+                />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

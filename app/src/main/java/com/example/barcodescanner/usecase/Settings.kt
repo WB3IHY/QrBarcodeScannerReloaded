@@ -39,6 +39,7 @@ class Settings(private val context: Context) {
         SAVE_CREATED_BARCODES_TO_HISTORY,
         DO_NOT_SAVE_DUPLICATES,
         SEARCH_ENGINE,
+        QR_ERROR_CORRECTION_LEVEL,
     }
 
     private val sharedPreferences by unsafeLazy {
@@ -119,6 +120,10 @@ class Settings(private val context: Context) {
         get() = get(Key.SEARCH_ENGINE, SearchEngine.NONE)
         set(value) = set(Key.SEARCH_ENGINE, value)
 
+    var qrErrorCorrectionLevel: String
+        get() = get(Key.QR_ERROR_CORRECTION_LEVEL, "M")
+        set(value) = set(Key.QR_ERROR_CORRECTION_LEVEL, value)
+
     fun isFormatSelected(format: BarcodeFormat): Boolean {
         return sharedPreferences.getBoolean(format.name, true)
     }
@@ -161,6 +166,16 @@ class Settings(private val context: Context) {
     private fun set(key: Key, value: SearchEngine) {
         sharedPreferences.edit()
             .putString(key.name, value.name)
+            .apply()
+    }
+
+    private fun get(key: Key, default: String): String {
+        return sharedPreferences.getString(key.name, default) ?: default
+    }
+
+    private fun set(key: Key, value: String) {
+        sharedPreferences.edit()
+            .putString(key.name, value)
             .apply()
     }
 

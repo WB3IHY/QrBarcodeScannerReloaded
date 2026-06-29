@@ -231,6 +231,8 @@
     <string name="fragment_settings_advanced_settings">Advanced</string>
     <string name="fragment_settings_choose_search_engines">Search Engines</string>
     <string name="fragment_settings_choose_search_engines_hint">Choose a search engine for web searches</string>
+    <string name="fragment_settings_qr_error_correction">QR Error Correction</string>
+    <string name="fragment_settings_qr_error_correction_hint">Set redundancy level for created QR codes</string>
     <string name="fragment_settings_about">About</string>
     <string name="fragment_settings_check_updates">Check for updates</string>
     <string name="fragment_settings_permissions">Permissions</string>
@@ -363,6 +365,24 @@
     <string name="barcode_schema_youtube">Youtube URL</string>
     <string name="barcode_schema_boardingpass">Boarding Pass</string>
     <string name="barcode_schema_other">Text</string>
+
+    <!--QR error correction level chooser-->
+    <string name="activity_choose_qr_error_correction_title">QR Error Correction</string>
+    <string name="activity_choose_qr_error_correction_l">L — Low</string>
+    <string name="activity_choose_qr_error_correction_l_hint">Recovers up to 7% of data</string>
+    <string name="activity_choose_qr_error_correction_m">M — Medium</string>
+    <string name="activity_choose_qr_error_correction_m_hint">Recovers up to 15% of data (default)</string>
+    <string name="activity_choose_qr_error_correction_q">Q — Quartile</string>
+    <string name="activity_choose_qr_error_correction_q_hint">Recovers up to 25% of data</string>
+    <string name="activity_choose_qr_error_correction_h">H — High</string>
+    <string name="activity_choose_qr_error_correction_h_hint">Recovers up to 30% of data</string>
+
+    <!--Error correction display in scan result-->
+    <string name="barcode_error_correction_label">Error correction: %1$s</string>
+    <string name="barcode_error_correction_l">L — Low (7%)</string>
+    <string name="barcode_error_correction_m">M — Medium (15%)</string>
+    <string name="barcode_error_correction_q">Q — Quartile (25%)</string>
+    <string name="barcode_error_correction_h">H — High (30%)</string>
 
     <!--Barcode formats-->
     <string name="barcode_format_qr_code">QR Code</string>

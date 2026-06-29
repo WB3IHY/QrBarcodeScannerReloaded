@@ -110,6 +110,17 @@
                 tools:visibility="visible"
                 style="@style/SecondaryTextViewStyle"
                 />
+            <TextView
+                android:id="@+id/text_view_error_correction_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin_small"
+                android:layout_marginStart="@dimen/default_margin"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="Error correction: M (Medium, 15%)"
+                style="@style/SecondaryTextViewStyle"
+                />
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
