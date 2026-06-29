@@ -162,7 +162,7 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
         scannerCameraHelper.getCameraParameters(settings.isBackCamera)?.apply {
             this@ScanBarcodeFromCameraFragment.maxZoom = maxZoom
             seek_bar_zoom.max = maxZoom
-            seek_bar_zoom.progress = zoom
+            seek_bar_zoom.progress = codeScanner.zoom
         }
     }
 

@@ -9,7 +9,10 @@ object ScannerCameraHelper {
         return try {
             val cameraFacing = getCameraFacing(isBackCamera)
             val cameraId = getCameraId(cameraFacing) ?: return null
-            Camera.open(cameraId)?.parameters
+            val camera = Camera.open(cameraId) ?: return null
+            val parameters = camera.parameters
+            camera.release()
+            parameters
         } catch (ex: Exception) {
             Logger.log(ex)
             null
