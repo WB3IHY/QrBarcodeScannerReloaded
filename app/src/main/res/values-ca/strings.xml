@@ -230,9 +230,6 @@
     <string name="fragment_settings_advanced_settings">Advançat</string>
     <string name="fragment_settings_choose_search_engines">Motors de cerca</string>
     <string name="fragment_settings_choose_search_engines_hint">Escull un motor de cerca per a cerques web</string>
-    <string name="fragment_settings_error_reports">Informes d\'error</string>
-    <string name="fragment_settings_enable_error_reports">Activa informes d\'error</string>
-    <string name="fragment_settings_enable_error_reports_hint">Ajuda\'ns a corregir errors</string>
     <string name="fragment_settings_about">Quant a</string>
     <string name="fragment_settings_check_updates">Comprova actualitzacions</string>
     <string name="fragment_settings_permissions">Permisos</string>

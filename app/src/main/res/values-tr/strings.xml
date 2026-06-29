@@ -229,9 +229,6 @@
     <string name="fragment_settings_advanced_settings">Gelişmiş</string>
     <string name="fragment_settings_choose_search_engines">Arama Motorları</string>
     <string name="fragment_settings_choose_search_engines_hint">Web\'de arama yapmak için bir arama motoru seçin</string>
-    <string name="fragment_settings_error_reports">Hata raporları</string>
-    <string name="fragment_settings_enable_error_reports">Hata raporlarına izin ver</string>
-    <string name="fragment_settings_enable_error_reports_hint">Hataları düzeltmemizde yardımcı olun</string>
     <string name="fragment_settings_about">Hakkında</string>
     <string name="fragment_settings_check_updates">Güncellemeleri denetle</string>
     <string name="fragment_settings_permissions">Uygulama İzinleri</string>

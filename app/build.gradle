@@ -1,14 +1,8 @@
 plugins {
-    id("io.sentry.android.gradle") version "3.0.1"
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-}
-
-sentry {
-    includeProguardMapping = true
-    autoUploadProguardMapping = true
 }
 
 android {
@@ -31,7 +25,6 @@ android {
             }
         }
 
-        buildConfigField "boolean", "ERROR_REPORTS_ENABLED_BY_DEFAULT", "true"
     }
 
     compileOptions {
@@ -57,9 +50,7 @@ android {
         googlePlay {
             applicationId "org.barcodescanner"
         }
-        fDroid {
-            buildConfigField "boolean", "ERROR_REPORTS_ENABLED_BY_DEFAULT", "false"
-        }
+        fDroid {}
     }
 }
 
@@ -113,6 +104,5 @@ dependencies {
     // Date time picker
     implementation 'com.github.florent37:singledateandtimepicker:2.2.6'
 
-    // Sentry
-    implementation 'io.sentry:sentry-android:5.7.1'
+
 }

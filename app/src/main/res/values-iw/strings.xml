@@ -230,9 +230,6 @@
     <string name="fragment_settings_advanced_settings">מתקדם</string>
     <string name="fragment_settings_choose_search_engines">מנוע חיפוש</string>
     <string name="fragment_settings_choose_search_engines_hint">בחירת מנוע חיפוש לחיפושים במרשתת</string>
-    <string name="fragment_settings_error_reports">דוחות שגיאה</string>
-    <string name="fragment_settings_enable_error_reports">איפשור דוחות שגיאה</string>
-    <string name="fragment_settings_enable_error_reports_hint">זה יעזור לנו לתקן באגים</string>
     <string name="fragment_settings_about">אודות</string>
     <string name="fragment_settings_check_updates">חיפוש עדכונים</string>
     <string name="fragment_settings_permissions">הרשאות</string>

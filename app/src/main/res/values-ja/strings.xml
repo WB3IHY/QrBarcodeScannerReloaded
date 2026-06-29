@@ -229,9 +229,6 @@
     <string name="fragment_settings_advanced_settings">高度な設定</string>
     <string name="fragment_settings_choose_search_engines">検索エンジン</string>
     <string name="fragment_settings_choose_search_engines_hint">ウェブ検索に利用する検索エンジンを選択します</string>
-    <string name="fragment_settings_error_reports">エラー報告</string>
-    <string name="fragment_settings_enable_error_reports">エラー報告を許可</string>
-    <string name="fragment_settings_enable_error_reports_hint">バグ修正にご協力ください</string>
     <string name="fragment_settings_about">アプリ情報</string>
     <string name="fragment_settings_check_updates">アップデートを確認</string>
     <string name="fragment_settings_permissions">アプリの権限</string>

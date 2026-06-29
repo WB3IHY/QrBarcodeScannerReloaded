@@ -229,9 +229,6 @@
     <string name="fragment_settings_advanced_settings">Zaawansowane</string>
     <string name="fragment_settings_choose_search_engines">Wyszukiwarki</string>
     <string name="fragment_settings_choose_search_engines_hint">Wybierz wyszukiwarkę do wyszukiwania w Internecie</string>
-    <string name="fragment_settings_error_reports">Raporty o błędach</string>
-    <string name="fragment_settings_enable_error_reports">Włącz raporty o błędach</string>
-    <string name="fragment_settings_enable_error_reports_hint">Pomóż nam naprawić błędy</string>
     <string name="fragment_settings_about">O aplikacji</string>
     <string name="fragment_settings_check_updates">Sprawdź aktualizacje</string>
     <string name="fragment_settings_permissions">Uprawnienia</string>

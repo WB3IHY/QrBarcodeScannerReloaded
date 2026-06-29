@@ -229,9 +229,6 @@
     <string name="fragment_settings_advanced_settings">Προχωρημένες</string>
     <string name="fragment_settings_choose_search_engines">Μηχανές αναζήτησης</string>
     <string name="fragment_settings_choose_search_engines_hint">Επιλογή μηχανής αναζήτησης στο διαδίκτυο</string>
-    <string name="fragment_settings_error_reports">Αναφορές σφαλμάτων</string>
-    <string name="fragment_settings_enable_error_reports">Ενεργοποίηση αναφορών σφαλμάτων</string>
-    <string name="fragment_settings_enable_error_reports_hint">Μας βοηθούν να διορθώσουμε τα σφάλματα</string>
     <string name="fragment_settings_about">Περί</string>
     <string name="fragment_settings_check_updates">Έλεγχος για αναβαθμίσεις</string>
     <string name="fragment_settings_permissions">Άδειες</string>

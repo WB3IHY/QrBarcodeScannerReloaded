@@ -209,9 +209,6 @@
     <string name="fragment_settings_advanced_settings">Расширенные настройки</string>
     <string name="fragment_settings_choose_search_engines">Поисковые системы</string>
     <string name="fragment_settings_choose_search_engines_hint">Выберите поисковую систему для поиска в интернете</string>
-    <string name="fragment_settings_error_reports">Отчеты об ошибках</string>
-    <string name="fragment_settings_enable_error_reports">Отчеты об ошибках</string>
-    <string name="fragment_settings_enable_error_reports_hint">Помогите нам в исправлении багов</string>
     <string name="fragment_settings_about">Приложение</string>
     <string name="fragment_settings_check_updates">Проверить наличие обновлений</string>
     <string name="fragment_settings_permissions">Разрешения</string>

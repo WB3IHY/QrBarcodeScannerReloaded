@@ -229,9 +229,6 @@
     <string name="fragment_settings_advanced_settings">Avançado</string>
     <string name="fragment_settings_choose_search_engines">Sites de Busca</string>
     <string name="fragment_settings_choose_search_engines_hint">Escolha um site de busca para encontrar conteúdo</string>
-    <string name="fragment_settings_error_reports">Relatórios de erros</string>
-    <string name="fragment_settings_enable_error_reports">Ativar os relatórios de erros</string>
-    <string name="fragment_settings_enable_error_reports_hint">Ajude-nos a resolver as falhas</string>
     <string name="fragment_settings_about">Sobre</string>
     <string name="fragment_settings_check_updates">Verificar por atualizações</string>
     <string name="fragment_settings_permissions">Permissões</string>

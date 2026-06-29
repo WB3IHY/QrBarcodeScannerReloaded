@@ -229,9 +229,6 @@
     <string name="fragment_settings_advanced_settings">高级设置</string>
     <string name="fragment_settings_choose_search_engines">搜索引擎</string>
     <string name="fragment_settings_choose_search_engines_hint">从网页中选择搜索引擎</string>
-    <string name="fragment_settings_error_reports">错误报告</string>
-    <string name="fragment_settings_enable_error_reports">启用错误报告</string>
-    <string name="fragment_settings_enable_error_reports_hint">帮助我们修复问题</string>
     <string name="fragment_settings_about">关于</string>
     <string name="fragment_settings_check_updates">检查更新</string>
     <string name="fragment_settings_permissions">权限</string>

@@ -229,9 +229,6 @@
     <string name="fragment_settings_advanced_settings">Aurreratua</string>
     <string name="fragment_settings_choose_search_engines">Bilaketa motorrak</string>
     <string name="fragment_settings_choose_search_engines_hint">Aukeratu bilaketa-motor bat web bilaketetarako</string>
-    <string name="fragment_settings_error_reports">Erroreen berri ematea</string>
-    <string name="fragment_settings_enable_error_reports">Gaitu erroreen berri ematea</string>
-    <string name="fragment_settings_enable_error_reports_hint">Lagundu gaitzazu arazoak konpontzen</string>
     <string name="fragment_settings_about">Gutaz</string>
     <string name="fragment_settings_check_updates">Egiaztatu eguneraketarik dagoen </string>
     <string name="fragment_settings_permissions">Baimenak</string>

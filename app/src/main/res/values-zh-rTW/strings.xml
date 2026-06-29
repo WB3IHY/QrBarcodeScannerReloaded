@@ -229,9 +229,6 @@
     <string name="fragment_settings_advanced_settings">進階</string>
     <string name="fragment_settings_choose_search_engines">搜尋引擎</string>
     <string name="fragment_settings_choose_search_engines_hint">選擇搜尋引擎</string>
-    <string name="fragment_settings_error_reports">錯誤報告</string>
-    <string name="fragment_settings_enable_error_reports">啟用錯誤報告</string>
-    <string name="fragment_settings_enable_error_reports_hint">幫助我們修復錯誤</string>
     <string name="fragment_settings_about">關於</string>
     <string name="fragment_settings_check_updates">檢查更新</string>
     <string name="fragment_settings_permissions">權限</string>
