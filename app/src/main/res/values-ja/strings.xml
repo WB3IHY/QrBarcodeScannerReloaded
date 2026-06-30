@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">スキャン完了をバイブレーションで通知するため</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi 接続の表示・接続と切断</string>
     <string name="activity_all_permissions_wifi_hint">QR コードをスキャンして Wi-Fi に接続するため</string>
-    <string name="activity_all_permissions_internet_title">ネットワークへのフルアクセス</string>
-    <string name="activity_all_permissions_internet_hint">エラー報告をするため。設定で無効にできます</string>
     <string name="activity_all_permissions_runtime_permissions">起動時</string>
     <string name="activity_all_permissions_camera_title">写真と動画の撮影（カメラ）</string>
     <string name="activity_all_permissions_camera_hint">カメラから QR コードとバーコードをスキャンするため</string>

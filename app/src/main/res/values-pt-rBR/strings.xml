@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">Usado para vibrar ao digitalizar</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">Usado para conectar ao Wi-Fi por meio de leitura de um código QR</string>
-    <string name="activity_all_permissions_internet_title">Internet</string>
-    <string name="activity_all_permissions_internet_hint">Usado para enviar relatórios de erro. Isto pode ser desativado nas configurações.</string>
     <string name="activity_all_permissions_camera_title">Câmara</string>
     <string name="activity_all_permissions_camera_hint">Usado para escanear códigos de barras e QR com câmera</string>
     <string name="activity_all_permissions_read_contacts_title">Ler os contatos</string>

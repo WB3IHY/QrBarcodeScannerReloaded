@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">用於掃描到時振動</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">用於透過掃描QR碼連結Wi-Fi</string>
-    <string name="activity_all_permissions_internet_title">網際網路</string>
-    <string name="activity_all_permissions_internet_hint">用於發送錯誤報告。可在設定中關閉。</string>
     <string name="activity_all_permissions_runtime_permissions">運行時</string>
     <string name="activity_all_permissions_camera_title">相機</string>
     <string name="activity_all_permissions_camera_hint">用於掃描 QR 碼和條碼</string>

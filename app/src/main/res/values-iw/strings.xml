@@ -267,8 +267,6 @@
     <string name="activity_all_permissions_vibrate_hint">משמש לרטט בעת סריקה</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">משמש לחיבור Wi-Fi בעת סריקת קוד QR</string>
-    <string name="activity_all_permissions_internet_title">אינטרנט</string>
-    <string name="activity_all_permissions_internet_hint">משמש למשלוח דוחות שגיאה, ניתן להשבית זאת בהגדרות.</string>
     <string name="activity_all_permissions_runtime_permissions">זמן ריצה</string>
     <string name="activity_all_permissions_camera_title">מצלמה</string>
     <string name="activity_all_permissions_camera_hint">משמש לסריקת קודי QR וברקוד במצלמה</string>

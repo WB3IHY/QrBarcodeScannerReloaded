@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">Tarama sonrası titreşimi etkinleştirmek için kullanılır.</string>
     <string name="activity_all_permissions_wifi_title">Kablosuz ağ</string>
     <string name="activity_all_permissions_wifi_hint">Karekod taratarak bir kablosuz ağa bağlanmak için kullanılır.</string>
-    <string name="activity_all_permissions_internet_title">İnternet</string>
-    <string name="activity_all_permissions_internet_hint">Hata raporlarını bildirmek için kullanılır. Bu ayarı seçeneklerden devre dışı bırakabilirsiniz.</string>
     <string name="activity_all_permissions_runtime_permissions">Özel izinler</string>
     <string name="activity_all_permissions_camera_title">Kamera</string>
     <string name="activity_all_permissions_camera_hint">Karekod ve barkodları taramak için kullanılır.</string>

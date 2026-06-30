@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">Służy do wibrowania podczas skanowania</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">Służy do łączenia się z Wi-Fi poprzez skanowanie kodu QR</string>
-    <string name="activity_all_permissions_internet_title">Internet</string>
-    <string name="activity_all_permissions_internet_hint">Służy do wysyłania raportów o błędach. Można to wyłączyć w ustawieniach.</string>
     <string name="activity_all_permissions_runtime_permissions">Środowiska wykonawcze</string>
     <string name="activity_all_permissions_camera_title">Aparat</string>
     <string name="activity_all_permissions_camera_hint">Służy do skanowania kodów QR i kodów kreskowych przy pomocy aparatu</string>

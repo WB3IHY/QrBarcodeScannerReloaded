@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">Eskaneatzerakoan dardar egiteko erabiltzen da</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">QR-kode bat eskaneatzerakoan Wi-Fira konektatzeko erabiltzen da</string>
-    <string name="activity_all_permissions_internet_title">Internet</string>
-    <string name="activity_all_permissions_internet_hint">Erroreen berri emateko erabiltzen da. Ezarpenetan desgaitu daiteke.</string>
     <string name="activity_all_permissions_runtime_permissions">Exekuzio-denbora</string>
     <string name="activity_all_permissions_camera_title">Kamera</string>
     <string name="activity_all_permissions_camera_hint">QR- eta barra-kodeak kameraz eskaneatzeko erabiltzen da</string>

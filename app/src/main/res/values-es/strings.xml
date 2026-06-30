@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">Utilizado para vibrar al escanear</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">Utilizado para conectarse al Wi-Fi al escanear un código QR</string>
-    <string name="activity_all_permissions_internet_title">Internet</string>
-    <string name="activity_all_permissions_internet_hint">Usado para enviar reportes. Esto puede deshabilitarse en la configuración.</string>
     <string name="activity_all_permissions_runtime_permissions">En tiempo de ejecución</string>
     <string name="activity_all_permissions_camera_title">Cámara</string>
     <string name="activity_all_permissions_camera_hint">Utilizado para escanear códigos QR y de barras desde la cámara</string>

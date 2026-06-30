@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">用于扫描到时振动</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">用于通过扫描QR码连接到Wi-Fi</string>
-    <string name="activity_all_permissions_internet_title">网络</string>
-    <string name="activity_all_permissions_internet_hint">用于发送错误报告，可在设置中关闭</string>
     <string name="activity_all_permissions_runtime_permissions">运行时</string>
     <string name="activity_all_permissions_camera_title">相机</string>
     <string name="activity_all_permissions_camera_hint">用于用相机扫描QR码和条形码</string>

@@ -246,8 +246,6 @@
     <string name="activity_all_permissions_vibrate_hint">Используется для вибрирования при сканировании</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">Используется для подключения к Wi-Fi с помощью QR кода</string>
-    <string name="activity_all_permissions_internet_title">Интернет</string>
-    <string name="activity_all_permissions_internet_hint">Используется для отправки отчетов об ошибках. Может быть отключено в настройках.</string>
     <string name="activity_all_permissions_runtime_permissions">Запрашиваемые</string>
     <string name="activity_all_permissions_camera_title">Камера</string>
     <string name="activity_all_permissions_camera_hint">Используется для сканирования QR и штрихкодов при помощи камеры</string>

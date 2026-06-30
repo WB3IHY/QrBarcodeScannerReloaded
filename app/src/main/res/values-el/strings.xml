@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">Για τη δόνηση με την ολοκλήρωση της σάρωσης</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">Για τη σύνδεση σε Wi-Fi μέσω σάρωσης κωδικού</string>
-    <string name="activity_all_permissions_internet_title">Διαδίκτυο</string>
-    <string name="activity_all_permissions_internet_hint">Για την αποστολή αναφορών σφαλμάτων. Μπορεί να απενεργοποιηθεί στις ρυθμίσεις.</string>
     <string name="activity_all_permissions_runtime_permissions">Χρόνου εκτέλεσης</string>
     <string name="activity_all_permissions_camera_title">Κάμερα</string>
     <string name="activity_all_permissions_camera_hint">Για τη σάρωση κωδικών μέσω της κάμερας</string>

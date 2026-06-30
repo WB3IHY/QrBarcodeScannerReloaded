@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">Zum Vibrieren während des Scannens</string>
     <string name="activity_all_permissions_wifi_title">WLAN</string>
     <string name="activity_all_permissions_wifi_hint">Zum Hinzufügen einer WLAN-Verbindung mittels QR-Code-Scan</string>
-    <string name="activity_all_permissions_internet_title">Internet</string>
-    <string name="activity_all_permissions_internet_hint">Zum Senden von Fehlerberichten. Das kann in den Einstellungen deaktiviert werden.</string>
     <string name="activity_all_permissions_runtime_permissions">Laufzeit</string>
     <string name="activity_all_permissions_camera_title">Kamera</string>
     <string name="activity_all_permissions_camera_hint">Zum Scannen der QR und Barcodes</string>

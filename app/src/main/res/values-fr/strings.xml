@@ -266,8 +266,6 @@
     <string name="activity_all_permissions_vibrate_hint">Utilisé pour vibrer lors du scan</string>
     <string name="activity_all_permissions_wifi_title">Wi-Fi</string>
     <string name="activity_all_permissions_wifi_hint">Utilisé pour se connecter au Wi-Fi en scannant un QR code</string>
-    <string name="activity_all_permissions_internet_title">Internet</string>
-    <string name="activity_all_permissions_internet_hint">Utilisé pour envoyer un rapport d\'erreur. Peut-être désactivé dans les paramètres</string>
     <string name="activity_all_permissions_runtime_permissions">Exécution</string>
     <string name="activity_all_permissions_camera_title">Caméra</string>
     <string name="activity_all_permissions_camera_hint">Utilisé pour scanner les QR codes et les codes-barres depuis l\'appareil photo</string>
