@@ -6,9 +6,12 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import androidx.fragment.app.FragmentActivity
 import com.example.barcodescanner.R
 import com.example.barcodescanner.extension.formatOrNull
-import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import kotlinx.android.synthetic.main.layout_date_time_picker_button.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -47,15 +50,38 @@ class DateTimePickerButton : FrameLayout {
     }
 
     private fun showDateTimePickerDialog() {
-        SingleDateAndTimePickerDialog.Builder(context)
-            .backgroundColor(context.resources.getColor(R.color.date_time_picker_dialog_background_color))
-            .title(view.text_view_hint.text.toString())
-            .mainColor(context.resources.getColor(R.color.blue))
-            .listener { newDateTime ->
-                dateTime = newDateTime.time
-                showDateTime()
+        val fragmentManager = (context as? FragmentActivity)?.supportFragmentManager ?: return
+        val title = view.text_view_hint.text.toString()
+        val currentCal = Calendar.getInstance().apply { timeInMillis = dateTime }
+
+        val datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText(title)
+            .setSelection(dateTime)
+            .build()
+
+        datePicker.addOnPositiveButtonClickListener { selectedDateMs ->
+            val timePicker = MaterialTimePicker.Builder()
+                .setTimeFormat(TimeFormat.CLOCK_24H)
+                .setHour(currentCal.get(Calendar.HOUR_OF_DAY))
+                .setMinute(currentCal.get(Calendar.MINUTE))
+                .setTitleText(title)
+                .build()
+
+            timePicker.addOnPositiveButtonClickListener {
+                val combined = Calendar.getInstance().apply {
+                    timeInMillis = selectedDateMs
+                    set(Calendar.HOUR_OF_DAY, timePicker.hour)
+                    set(Calendar.MINUTE, timePicker.minute)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }
+                dateTime = combined.timeInMillis
             }
-            .display()
+
+            timePicker.show(fragmentManager, "time_picker")
+        }
+
+        datePicker.show(fragmentManager, "date_picker")
     }
 
     private fun showDateTime() {

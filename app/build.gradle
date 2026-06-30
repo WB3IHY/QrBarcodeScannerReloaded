@@ -100,8 +100,6 @@ dependencies {
     // Image Crop Library
     implementation 'com.github.IsseiAoki:SimpleCropView:v1.1.5'
 
-    // Date time picker
-    implementation 'com.github.florent37:singledateandtimepicker:2.2.7'
 
 
 }

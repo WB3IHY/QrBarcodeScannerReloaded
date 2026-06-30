@@ -29,7 +29,6 @@
     <color name="crop_image_view_background_color">@color/white</color>
     <color name="edit_text_text_color">@color/black</color>
     <color name="edit_text_hint_color">@color/gray10</color>
-    <color name="date_time_picker_dialog_background_color">@color/white</color>
 
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
