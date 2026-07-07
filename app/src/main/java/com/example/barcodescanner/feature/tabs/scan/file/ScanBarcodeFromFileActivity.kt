@@ -90,6 +90,13 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
         disposable.clear()
     }
 
+    override fun onBackPressed() {
+        // Stay within the "scan image" flow: back re-opens the image picker instead of
+        // exiting straight to the previous screen. Only cancelling that picker (without
+        // choosing an image) actually leaves this activity, via onActivityResult below.
+        startChooseImageActivity(CHOOSE_FILE_REQUEST_CODE, null)
+    }
+
     private fun supportEdgeToEdge() {
         root_view.applySystemWindowInsets(applyTop = true, applyBottom = true)
     }
@@ -139,7 +146,7 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
 
     private fun handleToolbarBackPressed() {
         toolbar.setNavigationOnClickListener {
-            finish()
+            onBackPressed()
         }
     }
 
