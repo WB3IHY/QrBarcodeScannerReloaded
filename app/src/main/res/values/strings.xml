@@ -51,6 +51,7 @@
     <string name="activity_scan_barcode_from_file_rotate_left">Rotate left</string>
     <string name="activity_scan_barcode_from_file_rotate_right">Rotate right</string>
     <string name="activity_scan_barcode_from_file_change_image">Choose another image</string>
+    <string name="activity_scan_barcode_from_file_remaining_images">%1$d more image(s) selected</string>
 
     <!--Create barcode fragment-->
     <string name="fragment_create_barcode_title">Create</string>

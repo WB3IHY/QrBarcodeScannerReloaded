@@ -47,6 +47,8 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
     private var lastScanResult: Result? = null
     private val disposable = CompositeDisposable()
     private val scanDisposable = CompositeDisposable()
+    private val queuedImageUris = ArrayDeque<Uri>()
+    private var awaitingNextQueuedImage = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +69,10 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if ((requestCode == CHOOSE_FILE_REQUEST_CODE || requestCode == CHOOSE_FILE_AGAIN_REQUEST_CODE) && resultCode == RESULT_OK) {
-            data?.data?.apply(::showImage)
+            val uris = extractUris(data)
+            queuedImageUris.clear()
+            queuedImageUris.addAll(uris)
+            loadNextQueuedImage()
             return
         }
 
@@ -84,6 +89,14 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (awaitingNextQueuedImage) {
+            awaitingNextQueuedImage = false
+            loadNextQueuedImage()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         scanDisposable.clear()
@@ -91,9 +104,13 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        // Stay within the "scan image" flow: back re-opens the image picker instead of
-        // exiting straight to the previous screen. Only cancelling that picker (without
-        // choosing an image) actually leaves this activity, via onActivityResult below.
+        // Stay within the "scan image" flow: if more images were selected in this batch,
+        // skip to the next one; otherwise re-open the image picker instead of exiting
+        // straight to the previous screen. Only cancelling that picker (without choosing
+        // an image) actually leaves this activity, via onActivityResult below.
+        if (loadNextQueuedImage()) {
+            return
+        }
         startChooseImageActivity(CHOOSE_FILE_REQUEST_CODE, null)
     }
 
@@ -135,12 +152,35 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
 
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).apply {
             setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
+            putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         }
 
         try {
             startActivityForResult(intent, requestCode)
         } catch (ex: ActivityNotFoundException) {
             finish()
+        }
+    }
+
+    private fun extractUris(data: Intent?): List<Uri> {
+        val clipData = data?.clipData
+        if (clipData != null) {
+            return (0 until clipData.itemCount).mapNotNull { clipData.getItemAt(it).uri }
+        }
+        return listOfNotNull(data?.data)
+    }
+
+    private fun loadNextQueuedImage(): Boolean {
+        val next = queuedImageUris.removeFirstOrNull() ?: return false
+        showImage(next)
+        return true
+    }
+
+    private fun updateRemainingImagesSubtitle() {
+        toolbar.subtitle = if (queuedImageUris.isEmpty()) {
+            null
+        } else {
+            getString(R.string.activity_scan_barcode_from_file_remaining_images, queuedImageUris.size)
         }
     }
 
@@ -178,6 +218,7 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
 
     private fun showImage(imageUri: Uri) {
         this.imageUri = imageUri
+        updateRemainingImagesSubtitle()
 
         crop_image_view
             .load(imageUri)
@@ -262,6 +303,11 @@ class ScanBarcodeFromFileActivity : BaseActivity() {
 
     private fun navigateToBarcodeScreen(barcode: Barcode) {
         BarcodeActivity.start(this, barcode)
-        finish()
+        // Deliberately not finish()ing: keep this screen on the back stack so back
+        // from the decoded-result screen returns here (still within the scan-image
+        // flow) instead of exiting straight to camera scan. If more images were
+        // selected in this batch, onResume() advances to the next one automatically.
+        awaitingNextQueuedImage = true
+        showLoading(false)
     }
 }
